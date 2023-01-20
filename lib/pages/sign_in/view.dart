@@ -1,10 +1,9 @@
-import 'package:chat_flutter_firebase/common/style/style.dart';
-import 'package:chat_flutter_firebase/common/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:dots_indicator/dots_indicator.dart';
 
+import '../../common/values/values.dart';
+import '../../common/widgets/widgets.dart';
 import 'index.dart';
 
 class SignInPage extends GetView<SignInController> {
@@ -17,6 +16,8 @@ class SignInPage extends GetView<SignInController> {
         child: Column(
           children: [
             _buildLogo(),
+            const Spacer(),
+            _buildThirdPartyLogin(),
           ],
         ),
       ),
@@ -39,7 +40,7 @@ class SignInPage extends GetView<SignInController> {
                   child: Container(
                     height: 76.w,
                     decoration: const BoxDecoration(
-                      color: AppColor.primaryBackground,
+                      color: AppColors.primaryBackground,
                       boxShadow: [Shadows.primaryShadow],
                       borderRadius: BorderRadius.all(
                         Radius.circular(35),
@@ -56,6 +57,56 @@ class SignInPage extends GetView<SignInController> {
                   ),
                 )
               ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              top: 15.h,
+              bottom: 15.h,
+            ),
+            child: Text(
+              "Let's chat",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: AppColors.thirdElement,
+                fontWeight: FontWeight.w600,
+                fontSize: 18.sp,
+                height: 1,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildThirdPartyLogin() {
+    return Container(
+      width: 295.w,
+      margin: EdgeInsets.only(bottom: 280.h),
+      child: Column(
+        children: [
+          Text(
+            "Sign in with social networks",
+            style: TextStyle(
+              color: AppColors.primaryText,
+              fontWeight: FontWeight.w400,
+              fontSize: 16.sp,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              top: 30.h,
+              left: 50.w,
+              right: 50.w,
+            ),
+            child: btnFlatButtonWidget(
+              onPressed: () {
+                controller.handleSignIn();
+              },
+              width: 200.w,
+              height: 55.h,
+              title: "Google Sign In",
             ),
           )
         ],
