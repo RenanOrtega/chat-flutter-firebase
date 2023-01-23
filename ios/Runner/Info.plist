@@ -47,6 +47,9 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<key>NSPhotoLibraryUsageDescription</key>
 	<array>
         <dict>
             <key>CFBundleTypeRole</key>
